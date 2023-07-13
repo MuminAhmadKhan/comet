@@ -22,13 +22,22 @@ try
         body: formdata
       })
     const data =  await response.json()
-    setTimeout(async () => {
+    const getResult = async ()=>{
         const response = await fetch(baseUrl+`/submissions/${data.id}?access_token=`+problemToken, {
             method: 'GET',
           })
         const result = await response.json()   //would use webhooks ideally
-        res.json(result)
-    }, 2000);
+        console.log(result)
+        if(result.executing)
+         { setTimeout(() => {
+            
+          }, 2000);
+          getResult()
+        }
+        else   res.json(result)
+    };
+    getResult()
+
   }
   catch(error)
   {

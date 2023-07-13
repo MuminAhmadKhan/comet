@@ -42,14 +42,5 @@ userRouter.post('/', async (request, response) => {
 else response.json("Missing credentials")
 })
 
- 
-//   userRouter.get('/', async(request, response) => {
 
-//     const users = await User.find({}).populate('blogs')
-//     if (users)
-//     return response.json(users)
-//     else
-//     return response.status(400).send("Nothing")
-    
-//   })
   module.exports = userRouter
